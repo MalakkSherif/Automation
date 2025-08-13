@@ -10,13 +10,13 @@ public class BlogTests extends TestBase {
     BlogPage blogPage;
 
     @BeforeMethod
-    public void preConditions() {
+    private void preConditions() {
         blogPage = new BlogPage(driver);
         blogPage.navigateToBlogPage();
         blogPage.removeCookiesMessage();
     }
 
-    @Test
+    @Test(description = "TC_01: Enter Full Name and valid Email")
     public void TC_01() //Enter Full Name and valid Email
     {
         blogPage.fillForm("Malak Sherif Mohamed","malaksherifmohamed@gmail.com");
@@ -24,7 +24,7 @@ public class BlogTests extends TestBase {
         blogPage.validateThankYouMessage();
     }
 
-    @Test
+    @Test(description = "TC_02: Leave Full Name empty, Enter valid Email")
     public void TC_02() //Leave Full Name empty, Enter valid Email
     {
         blogPage.fillForm("","malaksherifmohamed@gmail.com");
@@ -32,7 +32,7 @@ public class BlogTests extends TestBase {
         blogPage.validateRequiredMessageForName();
     }
 
-    @Test
+    @Test(description = "TC_01: Enter Full Name, Leave Email empty")
     public void TC_03() //Enter Full Name, Leave Email empty
     {
         blogPage.fillForm("Malak Sherif Mohamed","");
@@ -40,7 +40,7 @@ public class BlogTests extends TestBase {
         blogPage.validateRequiredMessageForEmail();
     }
 
-    @Test
+    @Test(description = "TC_04: Leave Full Name and Email empty")
     public void TC_04() //Leave Full Name and Email empty
     {
         blogPage.fillForm("","");
@@ -49,7 +49,7 @@ public class BlogTests extends TestBase {
         blogPage.validateRequiredMessageForEmail();
     }
 
-    @Test
+    @Test(description = "TC_05: Enter Full Name, Enter invalid email without the part before \"@\"")
     public void TC_05() //Enter Full Name, Enter invalid email without the part before "@"
     {
         blogPage.fillForm("Malak Sherif Mohamed","@gmail.com");
@@ -57,7 +57,7 @@ public class BlogTests extends TestBase {
         blogPage.validateEmailInvalidMessage();
     }
 
-    @Test
+    @Test(description = "TC_06: Enter Full Name, Enter invalid email without \"@\"")
     public void TC_06() //Enter Full Name, Enter invalid email without "@"
     {
         blogPage.fillForm("Malak Sherif Mohamed","malaksherifmohamedgmail.com");
@@ -65,7 +65,7 @@ public class BlogTests extends TestBase {
         blogPage.validateEmailInvalidMessage();
     }
 
-    @Test
+    @Test(description = "TC_07: Enter Full Name, Enter invalid email without the part between \"@\" & \".\"")
     public void TC_07() //Enter Full Name, Enter invalid email without the part between "@" and the "."
     {
         blogPage.fillForm("Malak Sherif Mohamed","malaksherifmohamed@.com");
@@ -73,7 +73,7 @@ public class BlogTests extends TestBase {
         blogPage.validateEmailInvalidMessage();
     }
 
-    @Test
+    @Test(description = "TC_08: Enter Full Name, Enter invalid email without \".\"")
     public void TC_08() //Enter Full Name, Enter invalid email without "."
     {
         blogPage.fillForm("Malak Sherif Mohamed","malaksherifmohamed@gmailcom");

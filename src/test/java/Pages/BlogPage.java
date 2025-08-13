@@ -36,10 +36,6 @@ public class BlogPage {
         driver.findElement(subscribe_button).click();
     }
 
-    public void getThankYouMessage() {
-        driver.findElement(thankYou_message).getText();
-    }
-
     public void removeCookiesMessage() {
         driver.findElement(acceptCookies_button).click();
     }
