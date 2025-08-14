@@ -32,7 +32,7 @@ public class BlogTests extends TestBase {
         blogPage.validateRequiredMessageForName();
     }
 
-    @Test(description = "TC_01: Enter Full Name, Leave Email empty")
+    @Test(description = "TC_03: Enter Full Name, Leave Email empty")
     public void TC_03() //Enter Full Name, Leave Email empty
     {
         blogPage.fillForm("Malak Sherif Mohamed","");
@@ -66,7 +66,7 @@ public class BlogTests extends TestBase {
     }
 
     @Test(description = "TC_07: Enter Full Name, Enter invalid email without the part between \"@\" & \".\"")
-    public void TC_07() //Enter Full Name, Enter invalid email without the part between "@" and the "."
+    public void TC_07() //Enter Full Name, Enter invalid email without the part between "@" & "."
     {
         blogPage.fillForm("Malak Sherif Mohamed","malaksherifmohamed@.com");
         blogPage.clickSubscribeButton();
